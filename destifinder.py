@@ -82,7 +82,7 @@ aeropuertos = {"Tenerife Norte":"https://es.wikipedia.org/wiki/Aeropuerto_de_Ten
                "Madrid":"https://es.wikipedia.org/wiki/Aeropuerto_Adolfo_Su%C3%A1rez_Madrid-Barajas#Destinos_Nacionales"}
 
 content = requests.get(aeropuertos[option]) #Gets the airport page
-soup = BeautifulSoup(content.content, "lxml") #and create a soup object with the content
+soup = BeautifulSoup(content.content) #and create a soup object with the content
 
 #The negative positon of the destination tables for each option
 if option == "Valencia":
