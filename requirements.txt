@@ -2,7 +2,7 @@ bs4
 requests
 geopy.geocoders
 pandas
-streamlit as st
+streamlit
 time
 re
 plotly.express
