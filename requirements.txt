@@ -3,6 +3,4 @@ requests
 geopy
 pandas
 streamlit
-re
-plotly
-functools 
+plotly 
