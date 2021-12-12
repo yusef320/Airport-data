@@ -3,7 +3,6 @@ requests
 geopy
 pandas
 streamlit
-time
 re
 plotly
 functools 
