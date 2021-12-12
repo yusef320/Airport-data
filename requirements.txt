@@ -1,9 +1,9 @@
 bs4
 requests
-geopy.geocoders
+geopy
 pandas
 streamlit
 time
 re
-plotly.express
+plotly
 functools 
