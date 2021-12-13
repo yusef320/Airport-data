@@ -107,7 +107,7 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
     with c2:
         st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
 
-    #Generates a pie chart with the destinatios that flight every airline
+    #Generates a pie chart with the number destinations that every airline flights to 
     st.markdown("##### Aerolineas y número de rutas.")
     aer = pd.DataFrame(list(aerolineas.items()),columns = ["Aerolineas","Destinos"])
     aer["porcentaje"]= aer["Destinos"]/aer["Destinos"].sum()
