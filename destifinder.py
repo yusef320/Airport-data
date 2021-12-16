@@ -107,6 +107,8 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
         st.markdown("")
         st.metric(label="Número de Ciudades", value=str(len(destinos)))
         st.markdown("")
+        st.metric(label="Número de aeropuertos", value=str(len(airport_names)))
+        st.markdown("")
         st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
     with c2:
         #Generates a pie chart with the number destinations that every airline flights to 
