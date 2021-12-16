@@ -114,7 +114,7 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
     aer.loc[aer["porcentaje"] < 0.009, "Aerolineas"] = "Otras aerolineas"
     fig = px.pie(aer, values="Destinos", names="Aerolineas")
     st.plotly_chart(fig,use_container_width=True)
-
+    st.text(aer)
     with st.spinner("Generando mapa (puede tardar un poco)..."):
             lat, lon = get_ubi( aer) #gets the lat and lon of the destinations
 
