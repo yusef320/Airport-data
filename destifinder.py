@@ -103,19 +103,19 @@ st.markdown(destination_rpr(destinos))
 if st.button('Generar mapa y estadisticas'): #Map and statistics generator button
 
     st.markdown("##### Estadisticas.")
+    
     c1, c2= st.columns(2) #Number of different cities, airlines and countries
     with c1:
         st.metric(label="Número de Ciudades", value=str(len(destinos)))
-    with c2:
         st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
-
-    #Generates a pie chart with the number destinations that every airline flights to 
-    st.markdown("##### Aerolineas y número de rutas.")
-    aer = pd.DataFrame(list(aerolineas.items()),columns = ["Aerolineas","Destinos"])
-    aer["porcentaje"]= aer["Destinos"]/aer["Destinos"].sum()
-    aer.loc[aer["porcentaje"] < 0.009, "Aerolineas"] = "Otras aerolineas"
-    fig = px.pie(aer, values="Destinos", names="Aerolineas")
-    st.plotly_chart(fig,use_container_width=True)
+    with c2:
+        #Generates a pie chart with the number destinations that every airline flights to 
+        st.markdown("##### Aerolineas y número de rutas.")
+        aer = pd.DataFrame(list(aerolineas.items()),columns = ["Aerolineas","Destinos"])
+        aer["porcentaje"]= aer["Destinos"]/aer["Destinos"].sum()
+        aer.loc[aer["porcentaje"] < 0.009, "Aerolineas"] = "Otras aerolineas"
+        fig = px.pie(aer, values="Destinos", names="Aerolineas")
+        st.plotly_chart(fig,use_container_width=True)
     with st.spinner("Generando mapa (puede tardar un poco)..."):
             lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
 
