@@ -72,10 +72,10 @@ col1, col2 = st.columns(2)
 with col1:
     st.title("Destinos desde ")
 with col2:
-    option = st.selectbox("",("Tenerife Norte", "Palma de Mallorca","Valencia","Tenerife Sur","Madrid"))
+    option = st.selectbox("",("Barcelona", "Palma de Mallorca","Valencia","Tenerife Sur","Madrid"))
 
 #Dictionary with some airports and its wikipedia page
-aeropuertos = {"Tenerife Norte":"https://es.wikipedia.org/wiki/Aeropuerto_de_Tenerife_Norte-Ciudad_de_La_Laguna",
+aeropuertos = {"Barcelona":"https://es.wikipedia.org/wiki/Aeropuerto_Josep_Tarradellas_Barcelona-El_Prat",
                "Palma de Mallorca":"https://es.wikipedia.org/wiki/Aeropuerto_de_Palma_de_Mallorca",
                "Valencia":"https://es.wikipedia.org/wiki/Aeropuerto_de_Valencia",
                "Tenerife Sur":"https://es.wikipedia.org/wiki/Aeropuerto_de_Tenerife_Sur",
@@ -91,6 +91,8 @@ elif option == "Tenerife Sur":
     tab_pos = [5,4]
 elif option =="Madrid":
     tab_pos = [6,7]
+elif option =="Barcelona":
+    tab_pos = [7,8]
 else:
     tab_pos = [2,3]
 
