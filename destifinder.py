@@ -95,7 +95,7 @@ else:
     tab_pos = [2,3]
 
 #Scraps the page and obtain all destinations and shows them
-destinos,aer ,aerolineas = get_destinations(soup, tab_pos)
+destinos,airport_names ,aerolineas = get_destinations(soup, tab_pos)
 st.markdown(destination_rpr(destinos))
 
 if st.button('Generar mapa y estadisticas'): #Map and statistics generator button
@@ -114,9 +114,9 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
     aer.loc[aer["porcentaje"] < 0.009, "Aerolineas"] = "Otras aerolineas"
     fig = px.pie(aer, values="Destinos", names="Aerolineas")
     st.plotly_chart(fig,use_container_width=True)
-    st.text(aer)
+    st.text(airport_names)
     with st.spinner("Generando mapa (puede tardar un poco)..."):
-            lat, lon = get_ubi( aer) #gets the lat and lon of the destinations
+            lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
 
 
     st.markdown("##### Mapa de destinos.")
