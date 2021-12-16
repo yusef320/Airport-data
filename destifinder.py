@@ -101,15 +101,14 @@ destinos,airport_names ,aerolineas = get_destinations(soup, tab_pos)
 st.markdown(destination_rpr(destinos))
 
 if st.button('Generar mapa y estadisticas'): #Map and statistics generator button
-
-    
-    
-    c1, c2= st.columns((3,1)) #Number of different cities, airlines and countries
-    with c2:
-        st.markdown("##### Datos.")
-        st.metric(label="Número de Ciudades", value=str(len(destinos)))
-        st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
+    c1, c2= st.columns((1,3)) #Number of different cities, airlines and countries
     with c1:
+        st.markdown("##### Datos.")
+        st.markdown("")
+        st.metric(label="Número de Ciudades", value=str(len(destinos)))
+        st.markdown("")
+        st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
+    with c2:
         #Generates a pie chart with the number destinations that every airline flights to 
         st.markdown("##### Aerolineas y número de rutas.")
         aer = pd.DataFrame(list(aerolineas.items()),columns = ["Aerolineas","Destinos"])
