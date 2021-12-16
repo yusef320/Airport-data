@@ -94,7 +94,7 @@ elif option =="Madrid":
 elif option =="Barcelona":
     tab_pos = [7,8]
 else:
-    tab_pos = [2,3]
+    tab_pos = [9,10]
 
 #Scraps the page and obtain all destinations and shows them
 destinos,airport_names ,aerolineas = get_destinations(soup, tab_pos)
