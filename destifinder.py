@@ -95,7 +95,7 @@ else:
     tab_pos = [2,3]
 
 #Scraps the page and obtain all destinations and shows them
-destinos,aer ,aerolineas = get_destintations(soup, tab_pos)
+destinos,aer ,aerolineas = get_destinations(soup, tab_pos)
 st.markdown(destination_rpr(destinos))
 
 if st.button('Generar mapa y estadisticas'): #Map and statistics generator button
