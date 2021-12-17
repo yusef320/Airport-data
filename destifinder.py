@@ -72,27 +72,32 @@ col1, col2 = st.columns(2)
 with col1:
     st.title("Destinos desde ")
 with col2:
-    option = st.selectbox("",("Barcelona", "Palma de Mallorca","Valencia","Tenerife Sur","Madrid"))
+    option = st.selectbox("",("Barcelona", "Palma de Mallorca","Valencia","Tenerife Sur","Madrid","Sevilla","Bilbao","Alicante"))
 
 #Dictionary with some airports and its wikipedia page
 aeropuertos = {"Barcelona":"https://es.wikipedia.org/wiki/Aeropuerto_Josep_Tarradellas_Barcelona-El_Prat",
                "Palma de Mallorca":"https://es.wikipedia.org/wiki/Aeropuerto_de_Palma_de_Mallorca",
                "Valencia":"https://es.wikipedia.org/wiki/Aeropuerto_de_Valencia",
                "Tenerife Sur":"https://es.wikipedia.org/wiki/Aeropuerto_de_Tenerife_Sur",
-               "Madrid":"https://es.wikipedia.org/wiki/Aeropuerto_Adolfo_Su%C3%A1rez_Madrid-Barajas#Destinos_Nacionales"}
+               "Madrid":"https://es.wikipedia.org/wiki/Aeropuerto_Adolfo_Su%C3%A1rez_Madrid-Barajas#Destinos_Nacionales",
+               "Alicante":"https://es.wikipedia.org/wiki/Aeropuerto_de_Alicante-Elche_Miguel_Hern%C3%A1ndez",
+               "Sevilla":"https://es.wikipedia.org/wiki/Aeropuerto_de_Sevilla",
+               "Bilbao":"https://es.wikipedia.org/wiki/Aeropuerto_de_Bilbao"}
 
 content = requests.get(aeropuertos[option]) #Gets the airport page
 soup = BeautifulSoup(content.content) #and create a soup object with the content
 
 #The negative positon of the destination tables for each option
-if option == "Valencia":
-    tab_pos = [8,7]
+if option == "Valencia" or option =="Sevilla" or option =="Bilbao":
+    tab_pos = [7,8]
 elif option == "Tenerife Sur":
-    tab_pos = [5,4]
+    tab_pos = [4,5]
 elif option =="Madrid":
     tab_pos = [6,7]
 elif option =="Barcelona":
     tab_pos = [9,10]
+elif option =="Alicante":
+    tab_pos = [1,2]
 else:
     tab_pos = [2,3]
 
