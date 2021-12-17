@@ -94,11 +94,9 @@ elif option == "Tenerife Sur":
     tab_pos = [4,5]
 elif option =="Madrid":
     tab_pos = [6,7]
-elif option =="Barcelona":
+elif option =="Barcelona" or option =="Sevilla" or option =="Bilbao":
     tab_pos = [9,10]
-elif option =="Sevilla" or option =="Bilbao":
-    tab_pos = [9,10]
-else:
+else: #Madrid, Palma de Mallorca, 
     tab_pos = [2,3]
 
 #Scraps the page and obtain all destinations and shows them
