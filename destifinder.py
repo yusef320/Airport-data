@@ -55,7 +55,7 @@ def get_ubi(aeropuertos, ciudades):
     from a list of city name.
     """
     lat, lon = [],[]
-    for aeropuerto, destino in zipo(aeropuertos,ciudades):
+    for aeropuerto, destino in zip(aeropuertos,ciudades):
         d = geocoder.bing(aeropuerto+", "+destino, key=st.secrets["key"],
                           culture='es')
         print(d.address)
