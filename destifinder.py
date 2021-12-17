@@ -97,7 +97,7 @@ elif option =="Madrid":
 elif option =="Barcelona":
     tab_pos = [9,10]
 elif option =="Alicante":
-    tab_pos = [1,2]
+    tab_pos = [2,3]
 else:
     tab_pos = [2,3]
 
