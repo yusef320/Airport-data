@@ -121,7 +121,7 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
         fig = px.pie(aer, values="Destinos", names="Aerolineas")
         st.plotly_chart(fig,use_container_width=True)
     with st.spinner("Generando mapa (puede tardar un poco)..."):
-            lat, lon = get_ubi(airport_names, destinos) #gets the lat and lon of the destinations
+            lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
 
 
     st.markdown("##### Mapa de destinos.")
