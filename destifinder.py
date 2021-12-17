@@ -49,14 +49,14 @@ def destination_rpr(destinos):
     return " - ".join(sorted(converted_list))
 
 
-def get_ubi(destinos):
+def get_ubi(aeropuertos, ciudades):
     """
     Returns the a list of latitude, longitude and country
     from a list of city name.
     """
     lat, lon = [],[]
-    for destino in destinos:
-        d = geocoder.bing(destino, key=st.secrets["key"],
+    for aeropuerto, destino in zipo(aeropuertos,ciudades):
+        d = geocoder.bing(aeropuerto+", "+destino, key=st.secrets["key"],
                           culture='es')
         print(d.address)
         if d.lat is not None and d.lng is not None:
@@ -122,7 +122,7 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
         fig = px.pie(aer, values="Destinos", names="Aerolineas")
         st.plotly_chart(fig,use_container_width=True)
     with st.spinner("Generando mapa (puede tardar un poco)..."):
-            lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
+            lat, lon = get_ubi(airport_names, destinos) #gets the lat and lon of the destinations
 
 
     st.markdown("##### Mapa de destinos.")
