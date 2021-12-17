@@ -49,16 +49,15 @@ def destination_rpr(destinos):
     return " - ".join(sorted(converted_list))
 
 
-def get_ubi(aeropuertos, ciudades):
+def get_ubi(aeropuertos):
     """
     Returns the a list of latitude, longitude and country
     from a list of city name.
     """
     lat, lon = [],[]
-    for aeropuerto, destino in zip(aeropuertos,ciudades):
-        d = geocoder.bing(aeropuerto+", "+destino, key=st.secrets["key"],
+    for aeropuerto in aeropuerto:
+        d = geocoder.bing(aeropuerto, key=st.secrets["key"],
                           culture='es')
-        print(d.address)
         if d.lat is not None and d.lng is not None:
             lat.append(d.lat)
             lon.append(d.lng)
