@@ -88,7 +88,7 @@ content = requests.get(aeropuertos[option]) #Gets the airport page
 soup = BeautifulSoup(content.content) #and create a soup object with the content
 
 #The negative positon of the destination tables for each option
-if option == "Valencia" or option =="Bilbao":
+if option == "Valencia":
     tab_pos = [7,8]
 elif option == "Tenerife Sur":
     tab_pos = [4,5]
@@ -96,7 +96,7 @@ elif option =="Madrid":
     tab_pos = [6,7]
 elif option =="Barcelona":
     tab_pos = [9,10]
-elif option =="Sevilla":
+elif option =="Sevilla" or option =="Bilbao":
     tab_pos = [9,10]
 else:
     tab_pos = [2,3]
