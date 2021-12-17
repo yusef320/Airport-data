@@ -107,7 +107,7 @@ if st.button('Generar mapa y estadisticas'): #Map and statistics generator butto
         st.markdown("")
         st.metric(label="Número de Ciudades", value=str(len(destinos)))
         st.markdown("")
-        st.metric(label="Número de aeropuertos", value=max(aerolineas, key=aerolineas.get))))
+        st.metric(label="Aerolinea con más rutas", value=max(aerolineas, key=aerolineas.get))
         st.markdown("")
         st.metric(label="Número de aerolineas", value=str(len(aerolineas)))
     with c2:
