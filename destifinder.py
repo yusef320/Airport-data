@@ -13,7 +13,14 @@ def get_destinations(web, tab_pos):
     This function receives a soup object with the spanish Wikipedia page of
     the airport and the negative positions of the destination tables, and returns
     a list with all the destinations city, airports name and a dictionary with all airlines and
-    the number of destinations they flight to.
+    the number of destinations they flight to. The table needs to have the following structure. 
+    +------------------+-------------------+-------------------+
+    |City              |Airport Name       |Airlines           |
+    +------------------+-------------------+-------------------+
+    |Madrid            |Aeropuerto Adolfo S|Iberia, Air Europa,|
+    |                  |uárez Madrid-Baraja| Vueling           |
+    |                  |s                  |                   |
+    +------------------+-------------------+-------------------+
     """
     aer=[]
     destinos = []
