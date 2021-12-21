@@ -5,3 +5,5 @@ pandas
 streamlit
 plotly 
 geocoder
+chromium
+chromium-driver
