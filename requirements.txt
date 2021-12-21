@@ -5,5 +5,3 @@ pandas
 streamlit
 plotly 
 geocoder
-firefox-esr
-geckodriver
