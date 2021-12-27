@@ -66,7 +66,7 @@ def get_ubi(aeropuertos):
     """
     lat, lon = [],[]
     for aeropuerto in aeropuertos:
-        d = geocoder.bing(aeropuerto, key=st.secrets["key"],
+        d = geocoder.bing(aeropuerto, key="At44bHenTgqIM7hqN6Qe9sYC77Cck0SIOSV6nwtbapiIYbjklyWv3p-nlC8AWSgy",
                           culture='es')
         if d.lat is not None and d.lng is not None:
             lat.append(d.lat)
@@ -175,10 +175,9 @@ if expander.button("Generar mapa"): #Map and statistics generator button
     df = pd.DataFrame(list(zip(lat, lon)), columns =['lat', 'lon'])
     expander.map(df) #We plot the lat and lon into a map
 
-c1, c2= st.columns((3,3)) #Number of different cities, airlines and countries
-with c1:
+#c1, c2= st.columns((3,3)) #Number of different cities, airlines and countries
+with st.expander("Buscador de vuelos"):
     #Generates a pie chart with the number destinations that every airline flights to
-    st.markdown("##### Price-Search")
     st.metric(label="Origen", value=option)
     IATA_dic= IATA_list(airport_names,destinos)
     destino = st.selectbox("Destino", sorted(IATA_dic))
@@ -193,10 +192,10 @@ with c1:
             st.markdown(f"<h3 style='text-align: right; color: gray;'>{p}</h3>", unsafe_allow_html=True)
         else:
             p= "Precio estimado: "+p.text
-            st.markdown(f"<h3 style='text-align: right; color: gray;'>{p}</h3>", unsafe_allow_html=True)
-            st.write(f"Para reservar entra [aquí]({link})")
+            st.markdown(f"<h3 style='text-align: center; color: white;'>{p}</h3>", unsafe_allow_html=True)
+            st.write(f"Puedes consultar más información del vuelo [aquí]({link})")
 
-with c2:
+with st.expander("Estadisticas"):
     #Generates a pie chart with the number destinations that every airline flights to
     st.markdown("##### Aerolineas y número de rutas.")
     aer = pd.DataFrame(list(aerolineas.items()),columns = ["Aerolineas","Destinos"])
