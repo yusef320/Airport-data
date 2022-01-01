@@ -17,3 +17,11 @@ Tener instalado la siguientes bibliotecas en tu entorno python:
 - statistics
 
 ### ¿Cómo ejecurtarlo?
+
+Una vez instaladas todas las bibliotecas necesarias, el webdriver y el archivo web.py, ejecutamos nuestra consola (preferiblemente la de Anaconda) y nos ubicamos en donde este el archvio (eje: cd "ubicacion/del/archvio"). Una vez hecho esto, escribimos en la consola lo siguiente 
+
+ 
+   dfdjdfh 
+
+<!--endsec-->
+<!--sec data-title="Prompt: Windows" data-id="windows_prompt2" data-collapse=true ces-->
