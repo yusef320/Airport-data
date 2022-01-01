@@ -15,3 +15,5 @@ Tener instalado la siguientes bibliotecas en tu entorno python:
 - selenium
 - datetime
 - statistics
+
+### ¿Cómo ejecurtarlo?
