@@ -25,7 +25,6 @@ Una vez instaladas todas las bibliotecas necesarias, el webdriver y el archivo w
 
 Si estás en Mac o Linux, probablemente veas una `$`, como ésta:
 
-{% filename %}command-line{% endfilename %}
 
     $
     
