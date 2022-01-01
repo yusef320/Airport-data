@@ -32,5 +32,3 @@ Una vez hecho esto, escribimos en la consola lo siguiente:
     
 
 <!--endsec-->
-
-<!--sec data-title="Prompt: Windows" data-id="windows_prompt2" data-collapse=true ces-->
