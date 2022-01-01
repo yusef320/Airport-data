@@ -11,7 +11,6 @@ Tener instalado la siguientes bibliotecas en tu entorno python:
 - re
 - plotly
 - geocoder
-- import bs4
 - selenium
 - datetime
 - statistics
