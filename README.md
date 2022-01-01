@@ -1,6 +1,7 @@
 # Airport-data
 
 ### Requerimientos 
+Instalar el webdriver de Chrome en el PATH del sistema que puedes encontrar aquí[https://chromedriver.chromium.org/]
 Tener instalado la siguientes bibliotecas:
 - bs4 
 - requests
@@ -14,3 +15,4 @@ Tener instalado la siguientes bibliotecas:
 - selenium
 - datetime
 - statistics
+Tener ins
