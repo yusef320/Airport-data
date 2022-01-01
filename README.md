@@ -23,7 +23,7 @@ Una vez instaladas todas las bibliotecas necesarias, el webdriver y el archivo w
 
 <!--sec data-title="Prompt: OS X and Linux" data-id="OSX_Linux_prompt" data-collapse=true ces-->
  
-    cd ubicacion/del/archvio
+    $ cd ubicacion/del/archvio
     
 <!--endsec-->
 
@@ -34,7 +34,7 @@ Una vez instaladas todas las bibliotecas necesarias, el webdriver y el archivo w
 Una vez hecho esto, escribimos en la consola lo siguiente: 
 
 
-    streamlit run web.py
+    $ streamlit run web.py
     
 
 <!--endsec-->
