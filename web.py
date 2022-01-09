@@ -66,7 +66,7 @@ def get_ubi(aeropuertos):
     """
     lat, lon = [],[]
     for aeropuerto in aeropuertos:
-        d = geocoder.bing(aeropuerto, key="At44bHenTgqIM7hqN6Qe9sYC77Cck0SIOSV6nwtbapiIYbjklyWv3p-nlC8AWSgy",
+        d = geocoder.bing(aeropuerto, key="YOUR BING API KEY -> AVAILABLE AT https://www.bingmapsportal.com/",
                           culture='es')
         if d.lat is not None and d.lng is not None:
             lat.append(d.lat)
