@@ -2,7 +2,7 @@
 
 ### Requerimientos 
 Instalar el webdriver de Chrome en el PATH del sistema que puedes encontrar [aquí](https://chromedriver.chromium.org/).  
-Tener instalado la siguientes bibliotecas en tu entorno python:
+Tener instaladas la siguientes librerías en tu entorno python:
 - bs4 
 - requests
 - pandas
@@ -15,13 +15,13 @@ Tener instalado la siguientes bibliotecas en tu entorno python:
 - datetime
 - statistics
 
-### ¿Cómo ejecurtarlo?
+### ¿Cómo ejecutarlo?
 
-Una vez instaladas todas las bibliotecas necesarias, el webdriver y el archivo web.py, ejecutamos nuestra consola (preferiblemente la de Anaconda) y nos ubicamos en donde este el archvio (eje: cd "ubicacion/del/archvio"). 
+Una vez instaladas todas las librerías necesarias, el webdriver y el archivo web.py, ejecutamos nuestra consola (preferiblemente la de Anaconda) y nos ubicamos en donde este el archivo (ej: cd "ubicacion/del/archivo"). 
 
 <!--sec data-title="Prompt: Windows" data-id="windows_prompt2" data-collapse=true ces-->
  
-    > cd ubicacion/del/archvio
+    > cd ubicacion/del/archivo
     
 <!--endsec-->
 
