@@ -66,12 +66,13 @@ def get_ubi(aeropuertos):
     """
     lat, lon = [],[]
     for aeropuerto in aeropuertos:
-        d = geocoder.bing(aeropuerto, key="YOUR BING API KEY -> AVAILABLE AT https://www.bingmapsportal.com/",
+        d = geocoder.bing(aeropuerto, key="Bing API key",
                           culture='es')
         if d.lat is not None and d.lng is not None:
             lat.append(d.lat)
             lon.append(d.lng)
     return lat, lon
+
 def get_all_IATA():
     """
     Returns a pandas DataFrame with all airports IATA Code, airport name,
@@ -119,9 +120,9 @@ def IATA_list(aer, destinos):
 def flight_price(org, dest, fdate):
     """
     Returns the price for a flight from org (IATA CODE) to dest (IATA CODE)
-    for the date in fdate (datatime.data object) and the link where you can 
+    for the date in fdate (datatime.data object) and the link where you can
     book the flight.
-    """ 
+    """
     web = "https://www.halconviajes.com/vuelos/availability/#/consolidator-family-fares?type=oneWay&numTravellers=1&pax0=30&"
     d = f"dep={fdate.day:02d}-{fdate.month:02d}-{fdate.year}&from={org}&to={dest}"
     option = webdriver.ChromeOptions()
@@ -130,7 +131,7 @@ def flight_price(org, dest, fdate):
     driver.get(web+d)
     time.sleep(8)
     soup = BeautifulSoup(driver.page_source,"lxml")
-    
+
     return soup.find("div", {"class":"text-l sm:text-xl text-white font-bold leading-none flex-shrink-0"}),web+d
 
 st.set_page_config(layout="wide",page_title="Airport data")
@@ -150,9 +151,9 @@ IATA_origen = {"Barcelona":"BCN", "Palma de Mallorca":"PMI","Valencia":"VLC",
 #Title and destination selector.
 col1, col2 = st.columns(2)
 with col1:
-    st.title("Airport-data")
+    st.title("Destinos desde")
 with col2:
-    option = st.selectbox("Selecciona un aeropuerto",sorted(aeropuertos))
+    option = st.selectbox("",sorted(aeropuertos))
 
 
 
@@ -177,7 +178,7 @@ st.markdown(destination_rpr(destinos))
 
 
 with st.expander("Buscador de vuelos"):
-    #Flight price searcher 
+    #Flight price searcher
     st.metric(label="Origen", value=option)
     IATA_dic= IATA_list(airport_names,destinos)
     destino = st.selectbox("Destino", sorted(IATA_dic))
@@ -186,15 +187,15 @@ with st.expander("Buscador de vuelos"):
     fdate = st.date_input("Fecha del vuelo", value=t1, min_value=t1, max_value=t2)
     st.text("")
     if st.button("Buscar vuelo"):
-        with st.spinner("Tarda 10 segundos"):
+        with st.spinner("Estamos buscando tu vuelo"):
             p,link = flight_price(IATA_origen[option], IATA_dic[destino], fdate)
         if p is None:
             p = "No hemos encontrado vuelos :("
             st.markdown(f"<h3 style='text-align: center; color: gray;'>{p}</h3>", unsafe_allow_html=True)
         else:
             p= "Precio estimado: "+p.text
-            st.markdown(f"<h3 style='text-align: center; color: white;'>{p}</h3>", unsafe_allow_html=True)
-            st.write(f"<h6 style='text-align: center; color: white;'>Puedes consultar más información del vuelo <a href='{link}' style='color: white;'>aquí</a></h6>", unsafe_allow_html=True)
+            st.markdown(f"<h3 style='text-align: center;'>{p}</h3>", unsafe_allow_html=True)
+            st.write(f"<h6 style='text-align: center;'>Puedes consultar más información del vuelo <a href='{link}'>aquí</a></h6>", unsafe_allow_html=True)
 
 
 
@@ -203,17 +204,18 @@ with st.expander("Estadisticas"):
 
     with col1:
         #Some stadistics from the selected airport
+        m = max(aerolineas, key=aerolineas.get)
+        avg = mean(aerolineas.values())
         st.markdown("##### Resumen.")
+        st.markdown("")
+        st.metric("Aerolinea con más rutas", m,f"{round(aerolineas[m]-avg)} rutas más que la media")
         st.markdown("")
         st.metric("Numero de destinos", len(destinos))
         st.markdown("")
         st.metric("Numero de aerolineas", len(aerolineas))
-        m = max(aerolineas, key=aerolineas.get)
-        avg = mean(aerolineas.values())
         st.markdown("")
         st.metric("Rutas media por aerolinea", round(avg))
-        st.markdown("")
-        st.metric("Aerolinea con más rutas", m,f"{round(aerolineas[m]-avg)} rutas más que la media")
+
 
     with col2:
         #Generates a pie chart with the number destinations that every airline flights to
@@ -224,12 +226,11 @@ with st.expander("Estadisticas"):
         fig = px.pie(aer, values="Destinos", names="Aerolineas")
         st.plotly_chart(fig,use_container_width=True)
 
-expander = st.expander("Mapa de destinos", False)
-
-if expander.button("Generar mapa"): #Map generator button
-    #Creates a map with all the destinations available from the selected city 
-    with st.spinner("Generando mapa (puede tardar un poco)..."):
-            lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
-    expander.markdown("##### Mapa de destinos.")
-    df = pd.DataFrame(list(zip(lat, lon)), columns =['lat', 'lon'])
-    expander.map(df) #We plot the lat and lon into a map
+with st.expander("Mapa de destinos"):
+    if st.button("Generar mapa"): #Map generator button
+        #Creates a map with all the destinations available from the selected city
+        with st.spinner("Generando mapa (puede tardar un poco)"):
+                lat, lon = get_ubi(airport_names) #gets the lat and lon of the destinations
+        st.markdown("##### Mapa de destinos.")
+        df = pd.DataFrame(list(zip(lat, lon)), columns =['lat', 'lon'])
+        st.map(df) #We plot the lat and lon into a map
